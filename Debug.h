@@ -23,7 +23,7 @@ class Debug
 {
 public:
 
-  Debug() : DebugLevel(0)
+  Debug() : DebugLevel(0), DebugImages(false), DebugOutputs(false)
   {
 
   }
@@ -43,8 +43,32 @@ public:
     this->DebugLevel = debugLevel;
   }
 
+  void SetDebugImages(const bool debugImages)
+  {
+    this->DebugImages = debugImages;
+  }
+
+  void SetDebugOutputs(const bool debugOutputs)
+  {
+    this->DebugOutputs = debugOutputs;
+  }
+
+  bool GetDebugImages()
+  {
+    return this->DebugImages;
+  }
+
+  bool GetDebugOutputs()
+  {
+    return this->DebugOutputs;
+  }
+
 private:
   unsigned int DebugLevel;
+
+  bool DebugImages;
+
+  bool DebugOutputs;
 };
 
 #endif
