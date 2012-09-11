@@ -23,7 +23,7 @@ class Debug
 {
 public:
 
-  Debug() : DebugLevel(0), DebugImages(false), DebugOutputs(false)
+  Debug() : DebugLevel(0), DebugImages(false), DebugOutputs(false), DebugIteration(0)
   {
 
   }
@@ -63,12 +63,14 @@ public:
     return this->DebugOutputs;
   }
 
-private:
+protected:
   unsigned int DebugLevel;
 
   bool DebugImages;
 
   bool DebugOutputs;
+
+  unsigned int DebugIteration;
 };
 
 #endif
