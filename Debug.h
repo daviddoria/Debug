@@ -63,6 +63,16 @@ public:
     return this->DebugOutputs;
   }
 
+  void SetDebugIteration(const unsigned int debugIteration)
+  {
+    this->DebugIteration = debugIteration;
+  }
+
+  unsigned int GetDebugIteration()
+  {
+    return this->DebugIteration;
+  }
+
 protected:
   unsigned int DebugLevel;
 
