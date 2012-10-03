@@ -19,11 +19,14 @@
 #ifndef Debug_H
 #define Debug_H
 
+/** This class is meant to be inherited to provide an easy way to provide the ability
+  * to set debug flags in other classes.
+  */
 class Debug
 {
 public:
 
-  Debug() : DebugLevel(0), DebugImages(false), DebugOutputs(false), DebugIteration(0)
+  Debug()
   {
 
   }
@@ -48,9 +51,14 @@ public:
     this->DebugImages = debugImages;
   }
 
-  void SetDebugOutputs(const bool debugOutputs)
+  void SetDebugOutputFiles(const bool debugOutputFiles)
   {
-    this->DebugOutputs = debugOutputs;
+    this->DebugOutputFiles = debugOutputFiles;
+  }
+
+  void SetDebugScreenOutputs(const bool debugScreenOutputs)
+  {
+    this->DebugScreenOutputs = debugScreenOutputs;
   }
 
   bool GetDebugImages()
@@ -58,9 +66,14 @@ public:
     return this->DebugImages;
   }
 
-  bool GetDebugOutputs()
+  bool GetDebugOutputFiles()
   {
-    return this->DebugOutputs;
+    return this->DebugOutputFiles;
+  }
+
+  bool GetDebugScreenOutputs()
+  {
+    return this->DebugScreenOutputs;
   }
 
   void SetDebugIteration(const unsigned int debugIteration)
@@ -74,13 +87,20 @@ public:
   }
 
 protected:
-  unsigned int DebugLevel;
+  /** Allow setting many levels of debug outputs. */
+  unsigned int DebugLevel = 0;
 
-  bool DebugImages;
+  /** Output debug images to image files. */
+  bool DebugImages = false;
 
-  bool DebugOutputs;
+  /** Output debug information to the screen. */
+  bool DebugScreenOutputs = false;
 
-  unsigned int DebugIteration;
+  /** Output debug files (text files, etc). */
+  bool DebugOutputFiles = false;
+
+  /** Count iterations of something. */
+  unsigned int DebugIteration = 0;
 };
 
 #endif
