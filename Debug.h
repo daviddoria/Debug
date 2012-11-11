@@ -31,7 +31,7 @@ public:
 
   }
 
-  bool IsDebugOn()
+  bool IsDebugOn() const
   {
     return this->DebugLevel;
   }
@@ -61,17 +61,17 @@ public:
     this->DebugScreenOutputs = debugScreenOutputs;
   }
 
-  bool GetDebugImages()
+  bool GetDebugImages() const
   {
     return this->DebugImages;
   }
 
-  bool GetDebugOutputFiles()
+  bool GetDebugOutputFiles() const
   {
     return this->DebugOutputFiles;
   }
 
-  bool GetDebugScreenOutputs()
+  bool GetDebugScreenOutputs() const
   {
     return this->DebugScreenOutputs;
   }
@@ -81,9 +81,14 @@ public:
     this->DebugIteration = debugIteration;
   }
 
-  unsigned int GetDebugIteration()
+  unsigned int GetDebugIteration() const
   {
     return this->DebugIteration;
+  }
+
+  void IncrementDebugIteration()
+  {
+    this->DebugIteration++;
   }
 
 protected:
